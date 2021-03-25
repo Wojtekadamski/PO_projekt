@@ -8,6 +8,12 @@
 
 #include <ios>
 #include "CarPart.h"
+class Brakes{
+
+};
+class Tyre{
+
+};
 
 class Wheels : public CarPart {
 private:
@@ -20,11 +26,11 @@ public:
 
     void setWidth(int width);
 
-    int getBrakingCoeffitient() const;
+    Brakes getBrakingCoeffitient() const;
 
-    void setBrakingCoeffitient(int brakingCoeffitient);
+    void setBrakes(int brakes);
 
-    const std::string &getTyreType() const;
+    Tyre getTyreType() const;
 
     void setTyreType(const std::string &tyreType);
 
@@ -35,8 +41,8 @@ public:
 private:
     int diameter;
     int width;
-    int braking_coeffitient;
-    std::string tyre_type;
+    Brakes brakes;
+    Tyre tyre_type;
     std::string manufacturer;
 
 

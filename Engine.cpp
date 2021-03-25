@@ -17,7 +17,10 @@ const std::string &Engine::getType() const {
 
     return type;
 }
-
+/**
+ *
+ * @param type
+ */
 void Engine::setType(const std::string &type) {
 
     std::cout<<"Select engine type from the list:\n";

@@ -20,20 +20,20 @@ void Wheels::setWidth(int width) {
     Wheels::width = width;
 }
 
-int Wheels::getBrakingCoeffitient() const {
-    return braking_coeffitient;
+Brakes Wheels::getBrakingCoeffitient() const {
+    return brakes;
 }
 
-void Wheels::setBrakingCoeffitient(int brakingCoeffitient) {
-    braking_coeffitient = brakingCoeffitient;
+void Wheels::setBrakes(int brakes) {
+    brakes = brakes;
 }
 
-const std::string &Wheels::getTyreType() const {
+Tyre Wheels::getTyreType() const {
     return tyre_type;
 }
 
-void Wheels::setTyreType(const std::string &tyreType) {
-    tyre_type = tyreType;
+void Wheels::setTyreType(const std::string &tyre_type) {
+    tyre_type = tyre_type;
 }
 
 const std::string &Wheels::getManufacturer() const {

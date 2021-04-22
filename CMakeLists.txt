@@ -3,4 +3,4 @@ project(PO_projekt)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(PO_projekt main.cpp Acceleration.cpp Acceleration.h CarPart.cpp CarPart.h GearBox.cpp GearBox.h Engine.cpp Engine.h Car.cpp Car.h Wheels.cpp Wheels.h)
+add_executable(PO_projekt main.cpp Acceleration.cpp Acceleration.h CarPart.cpp CarPart.h GearBox.cpp GearBox.h Engine.cpp Engine.h Car.cpp Car.h Wheels.cpp Wheels.h Rims.cpp Rims.h Tire.cpp Tire.h)

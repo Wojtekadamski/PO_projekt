@@ -11,10 +11,22 @@
 #include "Wheels.h"
 
 class Car {
+private:
+
 
     GearBox gearBox;
     Engine engine;
     Wheels wheels;
+
+    public:
+    void start_engine();
+    void accelerate();
+    void brake();
+    void check_engine();
+    std::string to_string();
+    std::string getFullStatus();
+    void changeGear();
+
 
 };
 

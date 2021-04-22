@@ -13,20 +13,22 @@ public:
 
     const std::string &getVin() const;
 
-    void setVin(const std::string &vin);
-
-    int *getProductionDate() const;
-
-    void setProductionDate(int *productionDate);
 
     const std::string &getCondition() const;
 
     void setCondition(const std::string &condition);
 
 
-private:
-    std::string vin;
-    int* production_date;
+    const std::string &getProductionDate() const;
+
+    CarPart(const std::string &vin, const std::string &productionDate, const std::string &condition);
+
+    CarPart();
+
+
+protected:
+    const std::string vin;
+    const std::string production_date;
     std::string condition;
 
 

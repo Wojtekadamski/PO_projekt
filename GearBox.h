@@ -9,7 +9,8 @@
 #include <ios>
 #include "CarPart.h"
 
-class GearBox : public CarPart {
+class GearBox : public CarPart
+{
 
 
 public:
@@ -17,13 +18,24 @@ public:
 
     void setType(const std::string &type);
 
-    int getGearCount() const;
+    const int getGearCount() const;
 
-    void setGearCount(int gearCount);
-
+    void setGearCount(int);
+    enum gear
+    {
+        reverse=-1,
+        lack=0,
+        first=1,
+        second=2,
+        third=3,
+        fourth=4,
+        fifth=5,
+        sixth=6
+    };
 private:
     std::string type;
-    int gear_count;
+    gear gear_count;
+
 
 
 };

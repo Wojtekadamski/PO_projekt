@@ -8,17 +8,11 @@ const std::string &CarPart::getVin() const {
     return vin;
 }
 
-void CarPart::setVin(const std::string &vin) {
-    CarPart::vin = vin;
-}
 
-int *CarPart::getProductionDate() const {
-    return production_date;
-}
 
-void CarPart::setProductionDate(int *productionDate) {
-    production_date = productionDate;
-}
+
+
+
 
 const std::string &CarPart::getCondition() const {
     return condition;
@@ -27,3 +21,15 @@ const std::string &CarPart::getCondition() const {
 void CarPart::setCondition(const std::string &condition) {
     CarPart::condition = condition;
 }
+
+const std::string &CarPart::getProductionDate() const {
+    return production_date;
+}
+
+CarPart::CarPart(const std::string &vin, const std::string &productionDate, const std::string &condition) : vin(vin),
+                                                                                                            production_date(
+                                                                                                                    productionDate),
+                                                                                                            condition(
+                                                                                                                    condition) {}
+
+CarPart::CarPart() {}

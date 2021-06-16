@@ -14,20 +14,33 @@ class Car {
 private:
 
 
-    GearBox gearBox;
+    GearBox gearbox;
     Engine engine;
     Wheels wheels;
+    char turn_on_off;
+    unsigned int speed = 0;
+    unsigned int localEnginespeed = engine.getEngineSpeed();
 
-    public:
+public:
     void start_engine();
+
     void accelerate();
+
     void brake();
+
     void check_engine();
+
     std::string to_string();
+
     std::string getFullStatus();
+
     void changeGear();
 
+    Car();
 
+    void move();
+
+    Car(const GearBox &gearbox, const Engine &engine, const Wheels &wheels);
 };
 
 

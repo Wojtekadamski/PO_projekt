@@ -4,16 +4,7 @@
 
 #include "Engine.h"
 
-Engine::Engine() : CarPart(vin,
-                           production_date,
-                           condition),
-                   state(false),
-                   engine_speed(
-                                                                                                                  0),
-                   oil_level(
-                                                                                                                  100) {
 
-}
 
 bool Engine::getState() const {
     return state;
@@ -24,19 +15,11 @@ void Engine::setState(bool state) {
 }
 
 
-unsigned int Engine::getEnginespeed() const {
-    return engine_speed;
-}
+ int Engine::getEngineSpeed() const {
+     return engine_speed;
+ }
 
-void Engine::setEnginespeed(unsigned int engine_speed) {
-    Engine::engine_speed = engine_speed;
-}
-
-unsigned int Engine::getEngineSpeed() const {
-    return engine_speed;
-}
-
-void Engine::setEngineSpeed(unsigned int engineSpeed) {
+void Engine::setEngineSpeed(int engineSpeed) {
     engine_speed = engineSpeed;
 }
 
@@ -55,6 +38,24 @@ unsigned int Engine::getCarMileage() const {
 void Engine::setCarMileage(unsigned int carMileage) {
     car_mileage = carMileage;
 }
+
+unsigned int Engine::getFuelUsage() const {
+    return fuel_usage;
+}
+
+void Engine::setFuelUsage(unsigned int fuelUsage) {
+    fuel_usage = fuelUsage;
+}
+
+Engine::Engine() {
+    this->state = false;
+    this->engine_speed = 0;
+    this->oil_level = 100;
+    this->car_mileage = 0;
+    srand(time(NULL));
+    this->fuel_usage = rand() % 6 + 5;
+}
+
 
 /*int Engine::getSize() const {
     return size;

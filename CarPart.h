@@ -27,8 +27,8 @@ public:
 
 
 protected:
-    const std::string vin;
-    const std::string production_date;
+    std::string vin;
+    std::string production_date;
     std::string condition;
 
 

@@ -8,28 +8,16 @@
 #include <cstdlib>
 
 
+Tire::Tire(const std::string &vin, const std::string &productionDate, const std::string &condition, int diameter)
+        : CarPart(vin, productionDate, condition), diameter(diameter) {}
 
+Tire::Tire(int diameter) {
 
-Tire::Tire(int width, int height=205,  std::string type="R", int ir=16, int idn=91, std::string idv="T", int we=0, int q=5)
-{
-    width=width;
-    height=height;
-    type=type;
-    inner=ir;
-    index_n=idn;
-    index_v=idv;
-    wear=we;
-    quality=q;
+    this->diameter = diameter;
 }
 
+Tire::Tire() {
+    std::cout << "set diameter of tire:" << std::endl;
+    std::cin >> this->diameter;
 
-void Tire::tire_size()
-{
-    //WIP
-}
-
-void Tire::change()
-{
-    int wear=0;                                     //funkcja ustawia wear na 0, co skutkuje tym, ze program liczy opony jakby byly nowiutkie swiezutkie
-    //WIP
 }

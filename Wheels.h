@@ -15,17 +15,16 @@ class Brakes : public CarPart {
 };
 
 class Wheels : public CarPart {
-private:
 public:
 
+    Wheels(Tire tyreType);
+
+    Wheels();
 
 private:
-    int diameter;
-    int width;
+
     Brakes brakes;
     Tire tyre_type;
-    std::string manufacturer;
-
 
 
 };

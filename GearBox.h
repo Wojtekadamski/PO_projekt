@@ -9,35 +9,38 @@
 #include <ios>
 #include "CarPart.h"
 
-class GearBox : public CarPart
-{
-
+class GearBox : public CarPart {
+private:
+    int TOP_GEAR;
+    int current_gear;
 
 public:
-    const std::string &getType() const;
+    GearBox();
 
-    void setType(const std::string &type);
+    GearBox(const std::string &vin, const std::string &productionDate, const std::string &condition, const int topGear,
+            int currentGear);
 
-    const int getGearCount() const;
+    int getTopGear() const;
 
-    void setGearCount(int);
-    enum gear
-    {
-        reverse=-1,
-        lack=0,
-        first=1,
-        second=2,
-        third=3,
-        fourth=4,
-        fifth=5,
-        sixth=6
-    };
-private:
-    std::string type;
-    gear gear_count;
+    int getCurrentGear() const;
 
+    void setCurrentGear(int currentGear);
 
+    bool gearUp() {
+        if (this->current_gear < this->TOP_GEAR) {
+            current_gear++;
+            return true;
+        }
+        return false;
+    }
 
+    bool gearDown() {
+        if (this->current_gear > 0) {
+            current_gear--;
+            return true;
+        }
+        return false;
+    }
 };
 
 

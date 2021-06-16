@@ -8,27 +8,23 @@
 
 #include <iostream>
 #include "Rims.h"
+#include "CarPart.h"
 
 
-
-class Tire
-{
+class Tire : public CarPart {
 private:
-    int width;                                                              //szerokosc przekroju w milimetrach
-    int height;                                                             //wysokosc profilu
-    std::string type;                                                            //informacja o budowie opony
-    int inner;                                                              //srednica osadzenia
-    int index_n;                                                            //indeks nosnosci
-    std::string index_v;                                                         //indeks predkosci
-    int wear;                                                               //poziom zuzycia opony w zakresie od 0 do 1  (0,02 na 1000km)
-    int quality;                                                            //jakosc opon od 1 do 5 (po prostu jakosc; wiecej=gorzej)
+    int diameter;                                                            //jakosc opon od 1 do 5 (po prostu jakosc; wiecej=gorzej)
 
 
 public:
-    Tire(int, int, std::string, int, int, std::string, int, int);                    //konstruktor
-    ~Tire();                                                               //destruktor
-    void tire_size();                                                       //funkcja ktora wyswietla rozmiar opon                                                          //funkcja liczaca scieranie sie opon przez dluga jazde
-    void change();                                                          //funkcja umozliwiajaca wymiane opon
+    explicit Tire(int diameter);
+
+    Tire();//konstruktor
+    ~Tire();
+
+    Tire(const std::string &vin, const std::string &productionDate, const std::string &condition, int diameter);
+    //destruktor
+    //funkcja umozliwiajaca wymiane opon
 };
 
 

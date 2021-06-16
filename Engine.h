@@ -7,36 +7,30 @@
 
 
 #include <ios>
-#include <map>
 #include "CarPart.h"
 
-class Engine : public CarPart{
+class Engine : public CarPart {
 private:
     bool state;
-    unsigned int engine_speed;
+    int engine_speed;
     unsigned int oil_level;
     unsigned int car_mileage;
-    /*int size;
-    std::string type ;
-    int horse_power;
-    int torque;
-    std::string manufacturer;
-    const char * ENGINE_TYPES[3]= {"r2", "r3","v6"};*/
-
+    unsigned int fuel_usage;
 public:
+    void setFuelUsage(unsigned int fuelUsage);
+
+
+    unsigned int getFuelUsage() const;
+
     Engine();
 
     bool getState() const;
 
     void setState(bool state);
 
-    unsigned int getEnginespeed() const;
+    int getEngineSpeed() const;
 
-    void setEnginespeed(unsigned int enginespeed);
-
-    unsigned int getEngineSpeed() const;
-
-    void setEngineSpeed(unsigned int engineSpeed);
+    void setEngineSpeed(int engineSpeed);
 
     unsigned int getOilLevel() const;
 
@@ -45,29 +39,6 @@ public:
     unsigned int getCarMileage() const;
 
     void setCarMileage(unsigned int carMileage);
-
-
-
-    /*int getSize() const;
-
-    void setSize(int size);
-
-    const std::string &getType() const;
-
-    void setType(const std::string &type);
-
-    int getHorsePower() const;
-
-    void setHorsePower(int horsePower);
-
-    int getTorque() const;
-
-    void setTorque(int torque);
-
-    const std::string &getManufacturer() const;
-
-    void setManufacturer(const std::string &manufacturer);*/
-
 
 
 

@@ -5,3 +5,8 @@
 #include "Wheels.h"
 
 
+Wheels::Wheels(Tire tyreType) : tyre_type(tyreType) {
+
+}
+
+Wheels::Wheels() {}

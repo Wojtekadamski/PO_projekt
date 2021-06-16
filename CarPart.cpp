@@ -2,6 +2,7 @@
 // Created by Wojtek on 25.03.2021.
 //
 
+#include <iostream>
 #include "CarPart.h"
 
 const std::string &CarPart::getVin() const {
@@ -32,4 +33,12 @@ CarPart::CarPart(const std::string &vin, const std::string &productionDate, cons
                                                                                                             condition(
                                                                                                                     condition) {}
 
-CarPart::CarPart() {}
+CarPart::CarPart() {
+    std::cout << "set vin";
+    std::cin >> this->vin;
+    std::cout << "set production_date";
+    std::cin >> this->production_date;
+    std::cout << "set condition";
+    std::cin >> this->condition;
+
+}

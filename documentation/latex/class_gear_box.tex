@@ -1,0 +1,146 @@
+\hypertarget{class_gear_box}{}\doxysection{Gear\+Box Class Reference}
+\label{class_gear_box}\index{GearBox@{GearBox}}
+
+
+{\ttfamily \#include $<$Car.\+h$>$}
+
+Inheritance diagram for Gear\+Box\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_gear_box}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gear_box_a919408bfff2552bce6c4aee85f33f620}{Gear\+Box}} ()
+\item 
+\mbox{\hyperlink{class_gear_box_a98a6ad570a49353ff9fb868642125a53}{Gear\+Box}} (const std\+::string \&\mbox{\hyperlink{class_car_part_a34104361956d289c3e7a5a03eee0bcdd}{vin}}, const std\+::string \&production\+Date, const std\+::string \&\mbox{\hyperlink{class_car_part_add12444ee4a3cbe337d0d19dc5fd8e6d}{condition}}, const int top\+Gear, int current\+Gear)
+\item 
+int \mbox{\hyperlink{class_gear_box_a76ff9cd302ba69d62b71240d1364db92}{get\+Top\+Gear}} () const
+\item 
+int \mbox{\hyperlink{class_gear_box_a40c5db617a3da1f727e7439500396dd3}{get\+Current\+Gear}} () const
+\item 
+void \mbox{\hyperlink{class_gear_box_a0ca4ed9ef7b80f60c96853e3849338bc}{set\+Current\+Gear}} (int current\+Gear)
+\item 
+bool \mbox{\hyperlink{class_gear_box_aa2955e3a1781ac77c081707d96728a4b}{gear\+Up}} (\mbox{\hyperlink{class_engine}{Engine}} $\ast$engine)
+\item 
+bool \mbox{\hyperlink{class_gear_box_a49105bb09344e7bebb5d83f512e37439}{gear\+Down}} (\mbox{\hyperlink{class_engine}{Engine}} $\ast$engine)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Klasa \mbox{\hyperlink{class_gear_box}{Gear\+Box}} definiuje skrzynię biegów w samochodzi
+
+
+\begin{DoxyParams}{Parameters}
+{\em TOP\+\_\+\+GEAR} & -\/ maksymalny bieg \\
+\hline
+{\em current\+\_\+gear} & -\/ obecny bieg \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file Car.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_gear_box_a919408bfff2552bce6c4aee85f33f620}\label{class_gear_box_a919408bfff2552bce6c4aee85f33f620}} 
+\index{GearBox@{GearBox}!GearBox@{GearBox}}
+\index{GearBox@{GearBox}!GearBox@{GearBox}}
+\doxysubsubsection{\texorpdfstring{GearBox()}{GearBox()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Gear\+Box\+::\+Gear\+Box (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file Gear\+Box.\+cpp.
+
+\mbox{\Hypertarget{class_gear_box_a98a6ad570a49353ff9fb868642125a53}\label{class_gear_box_a98a6ad570a49353ff9fb868642125a53}} 
+\index{GearBox@{GearBox}!GearBox@{GearBox}}
+\index{GearBox@{GearBox}!GearBox@{GearBox}}
+\doxysubsubsection{\texorpdfstring{GearBox()}{GearBox()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Gear\+Box\+::\+Gear\+Box (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{vin,  }\item[{const std\+::string \&}]{production\+Date,  }\item[{const std\+::string \&}]{condition,  }\item[{const int}]{top\+Gear,  }\item[{int}]{current\+Gear }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file Gear\+Box.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_gear_box_a49105bb09344e7bebb5d83f512e37439}\label{class_gear_box_a49105bb09344e7bebb5d83f512e37439}} 
+\index{GearBox@{GearBox}!gearDown@{gearDown}}
+\index{gearDown@{gearDown}!GearBox@{GearBox}}
+\doxysubsubsection{\texorpdfstring{gearDown()}{gearDown()}}
+{\footnotesize\ttfamily bool Gear\+Box\+::gear\+Down (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_engine}{Engine}} $\ast$}]{engine }\end{DoxyParamCaption})}
+
+metoda zrzucająca bieg 
+\begin{DoxyParams}{Parameters}
+{\em engine} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+Definition at line 37 of file Gear\+Box.\+cpp.
+
+\mbox{\Hypertarget{class_gear_box_aa2955e3a1781ac77c081707d96728a4b}\label{class_gear_box_aa2955e3a1781ac77c081707d96728a4b}} 
+\index{GearBox@{GearBox}!gearUp@{gearUp}}
+\index{gearUp@{gearUp}!GearBox@{GearBox}}
+\doxysubsubsection{\texorpdfstring{gearUp()}{gearUp()}}
+{\footnotesize\ttfamily bool Gear\+Box\+::gear\+Up (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_engine}{Engine}} $\ast$}]{engine }\end{DoxyParamCaption})}
+
+metoda wrzucająca wyższy bieg
+
+
+\begin{DoxyParams}{Parameters}
+{\em engine} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+Definition at line 60 of file Gear\+Box.\+cpp.
+
+\mbox{\Hypertarget{class_gear_box_a40c5db617a3da1f727e7439500396dd3}\label{class_gear_box_a40c5db617a3da1f727e7439500396dd3}} 
+\index{GearBox@{GearBox}!getCurrentGear@{getCurrentGear}}
+\index{getCurrentGear@{getCurrentGear}!GearBox@{GearBox}}
+\doxysubsubsection{\texorpdfstring{getCurrentGear()}{getCurrentGear()}}
+{\footnotesize\ttfamily int Gear\+Box\+::get\+Current\+Gear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 11 of file Gear\+Box.\+cpp.
+
+\mbox{\Hypertarget{class_gear_box_a76ff9cd302ba69d62b71240d1364db92}\label{class_gear_box_a76ff9cd302ba69d62b71240d1364db92}} 
+\index{GearBox@{GearBox}!getTopGear@{getTopGear}}
+\index{getTopGear@{getTopGear}!GearBox@{GearBox}}
+\doxysubsubsection{\texorpdfstring{getTopGear()}{getTopGear()}}
+{\footnotesize\ttfamily int Gear\+Box\+::get\+Top\+Gear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 19 of file Gear\+Box.\+cpp.
+
+\mbox{\Hypertarget{class_gear_box_a0ca4ed9ef7b80f60c96853e3849338bc}\label{class_gear_box_a0ca4ed9ef7b80f60c96853e3849338bc}} 
+\index{GearBox@{GearBox}!setCurrentGear@{setCurrentGear}}
+\index{setCurrentGear@{setCurrentGear}!GearBox@{GearBox}}
+\doxysubsubsection{\texorpdfstring{setCurrentGear()}{setCurrentGear()}}
+{\footnotesize\ttfamily void Gear\+Box\+::set\+Current\+Gear (\begin{DoxyParamCaption}\item[{int}]{current\+Gear }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file Gear\+Box.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wojtek/\+CLion\+Projects/\+PO\+\_\+projekt\+\_\+2/\mbox{\hyperlink{_car_8h}{Car.\+h}}\item 
+C\+:/\+Users/\+Wojtek/\+CLion\+Projects/\+PO\+\_\+projekt\+\_\+2/\mbox{\hyperlink{_gear_box_8cpp}{Gear\+Box.\+cpp}}\end{DoxyCompactItemize}

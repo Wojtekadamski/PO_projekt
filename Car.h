@@ -59,11 +59,12 @@ public:
 
     std::string  getCondition() const;
 
+
 };
 class EngineView{
 
-//TODO write to string
-
+public:
+    static std::string to_string(const Engine engine);
 };
 /**
  *

@@ -1,0 +1,167 @@
+\hypertarget{class_car}{}\doxysection{Car Class Reference}
+\label{class_car}\index{Car@{Car}}
+
+
+{\ttfamily \#include $<$Car.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \mbox{\hyperlink{class_car_aaaf56df963b0503def0a8c694f6d5631}{get\+Speed}} () const
+\item 
+void \mbox{\hyperlink{class_car_aa4485e7ecae104dd9eb2d0b8ecb96d9a}{set\+Speed}} (unsigned int speed)
+\item 
+char \mbox{\hyperlink{class_car_a2bd43318bcd08690d5adc1fb6b50fd00}{get\+Turn\+On\+Off}} () const
+\item 
+void \mbox{\hyperlink{class_car_ab93f79fddf94733a8912b3064b8ba813}{set\+Turn\+On\+Off}} (char turn\+On\+Off)
+\item 
+\mbox{\hyperlink{class_car_a1c803f7c5038d3e31b368b0d0a35493c}{Car}} ()
+\item 
+\mbox{\hyperlink{class_car_aa6f59e3d9e2c96d80b0e9b79697bd23d}{Car}} (const \mbox{\hyperlink{class_gear_box}{Gear\+Box}} \&\mbox{\hyperlink{class_car_ab29f2854cca1039d44574896ef424579}{gearbox}}, const \mbox{\hyperlink{class_engine}{Engine}} \&\mbox{\hyperlink{class_car_a6120a2d6a20db3b25035536006ed6f9e}{engine}}, float fuel)
+\item 
+float \mbox{\hyperlink{class_car_a9d94199c83c0ccb47d1b49b19cb1460b}{get\+Fuel}} () const
+\item 
+void \mbox{\hyperlink{class_car_a5b3e5719cd5ab4b61424e35524e85c16}{set\+Fuel}} (float fuel)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_gear_box}{Gear\+Box}} \mbox{\hyperlink{class_car_ab29f2854cca1039d44574896ef424579}{gearbox}}
+\item 
+\mbox{\hyperlink{class_engine}{Engine}} \mbox{\hyperlink{class_car_a6120a2d6a20db3b25035536006ed6f9e}{engine}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+\begin{DoxyParams}{Parameters}
+{\em turn\+\_\+on\+\_\+off} & -\/ zawiera informację czy silnik działa \\
+\hline
+{\em speed} & -\/ aktualna prędkość \\
+\hline
+{\em fuel} & -\/ ilość paliwa \\
+\hline
+{\em gearbox} & -\/ kompozycja, obiekt reprezentujący skrzynię biegów \\
+\hline
+{\em engine} & -\/ kompozycja, obiekt reprezentujący silnik \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 105 of file Car.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_car_a1c803f7c5038d3e31b368b0d0a35493c}\label{class_car_a1c803f7c5038d3e31b368b0d0a35493c}} 
+\index{Car@{Car}!Car@{Car}}
+\index{Car@{Car}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{Car()}{Car()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Car\+::\+Car (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 167 of file Car.\+cpp.
+
+\mbox{\Hypertarget{class_car_aa6f59e3d9e2c96d80b0e9b79697bd23d}\label{class_car_aa6f59e3d9e2c96d80b0e9b79697bd23d}} 
+\index{Car@{Car}!Car@{Car}}
+\index{Car@{Car}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{Car()}{Car()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Car\+::\+Car (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_gear_box}{Gear\+Box}} \&}]{gearbox,  }\item[{const \mbox{\hyperlink{class_engine}{Engine}} \&}]{engine,  }\item[{float}]{fuel }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file Car.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_car_a9d94199c83c0ccb47d1b49b19cb1460b}\label{class_car_a9d94199c83c0ccb47d1b49b19cb1460b}} 
+\index{Car@{Car}!getFuel@{getFuel}}
+\index{getFuel@{getFuel}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{getFuel()}{getFuel()}}
+{\footnotesize\ttfamily float Car\+::get\+Fuel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 179 of file Car.\+cpp.
+
+\mbox{\Hypertarget{class_car_aaaf56df963b0503def0a8c694f6d5631}\label{class_car_aaaf56df963b0503def0a8c694f6d5631}} 
+\index{Car@{Car}!getSpeed@{getSpeed}}
+\index{getSpeed@{getSpeed}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{getSpeed()}{getSpeed()}}
+{\footnotesize\ttfamily unsigned int Car\+::get\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 117 of file Car.\+h.
+
+\mbox{\Hypertarget{class_car_a2bd43318bcd08690d5adc1fb6b50fd00}\label{class_car_a2bd43318bcd08690d5adc1fb6b50fd00}} 
+\index{Car@{Car}!getTurnOnOff@{getTurnOnOff}}
+\index{getTurnOnOff@{getTurnOnOff}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{getTurnOnOff()}{getTurnOnOff()}}
+{\footnotesize\ttfamily char Car\+::get\+Turn\+On\+Off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 187 of file Car.\+cpp.
+
+\mbox{\Hypertarget{class_car_a5b3e5719cd5ab4b61424e35524e85c16}\label{class_car_a5b3e5719cd5ab4b61424e35524e85c16}} 
+\index{Car@{Car}!setFuel@{setFuel}}
+\index{setFuel@{setFuel}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{setFuel()}{setFuel()}}
+{\footnotesize\ttfamily void Car\+::set\+Fuel (\begin{DoxyParamCaption}\item[{float}]{fuel }\end{DoxyParamCaption})}
+
+
+
+Definition at line 183 of file Car.\+cpp.
+
+\mbox{\Hypertarget{class_car_aa4485e7ecae104dd9eb2d0b8ecb96d9a}\label{class_car_aa4485e7ecae104dd9eb2d0b8ecb96d9a}} 
+\index{Car@{Car}!setSpeed@{setSpeed}}
+\index{setSpeed@{setSpeed}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{setSpeed()}{setSpeed()}}
+{\footnotesize\ttfamily void Car\+::set\+Speed (\begin{DoxyParamCaption}\item[{unsigned int}]{speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 121 of file Car.\+h.
+
+\mbox{\Hypertarget{class_car_ab93f79fddf94733a8912b3064b8ba813}\label{class_car_ab93f79fddf94733a8912b3064b8ba813}} 
+\index{Car@{Car}!setTurnOnOff@{setTurnOnOff}}
+\index{setTurnOnOff@{setTurnOnOff}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{setTurnOnOff()}{setTurnOnOff()}}
+{\footnotesize\ttfamily void Car\+::set\+Turn\+On\+Off (\begin{DoxyParamCaption}\item[{char}]{turn\+On\+Off }\end{DoxyParamCaption})}
+
+
+
+Definition at line 191 of file Car.\+cpp.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_car_a6120a2d6a20db3b25035536006ed6f9e}\label{class_car_a6120a2d6a20db3b25035536006ed6f9e}} 
+\index{Car@{Car}!engine@{engine}}
+\index{engine@{engine}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{engine}{engine}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_engine}{Engine}} Car\+::engine}
+
+
+
+Definition at line 115 of file Car.\+h.
+
+\mbox{\Hypertarget{class_car_ab29f2854cca1039d44574896ef424579}\label{class_car_ab29f2854cca1039d44574896ef424579}} 
+\index{Car@{Car}!gearbox@{gearbox}}
+\index{gearbox@{gearbox}!Car@{Car}}
+\doxysubsubsection{\texorpdfstring{gearbox}{gearbox}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_gear_box}{Gear\+Box}} Car\+::gearbox}
+
+
+
+Definition at line 114 of file Car.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wojtek/\+CLion\+Projects/\+PO\+\_\+projekt\+\_\+2/\mbox{\hyperlink{_car_8h}{Car.\+h}}\item 
+C\+:/\+Users/\+Wojtek/\+CLion\+Projects/\+PO\+\_\+projekt\+\_\+2/\mbox{\hyperlink{_car_8cpp}{Car.\+cpp}}\end{DoxyCompactItemize}

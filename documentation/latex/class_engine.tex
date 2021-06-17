@@ -1,0 +1,208 @@
+\hypertarget{class_engine}{}\doxysection{Engine Class Reference}
+\label{class_engine}\index{Engine@{Engine}}
+
+
+{\ttfamily \#include $<$Car.\+h$>$}
+
+Inheritance diagram for Engine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_engine}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_engine_a2d0d1b4abd4fac9745c7752f0d246f0e}{set\+Fuel\+Usage}} (unsigned int fuel\+Usage)
+\item 
+\mbox{\hyperlink{class_engine_a7694e2880cbe24310e752600a7a95fa0}{Engine}} (const std\+::string \&\mbox{\hyperlink{class_car_part_a34104361956d289c3e7a5a03eee0bcdd}{vin}}, const std\+::string \&production\+Date, const std\+::string \&\mbox{\hyperlink{class_car_part_add12444ee4a3cbe337d0d19dc5fd8e6d}{condition}}, bool state, int engine\+Speed, float oil\+Level, double car\+Mileage, unsigned int fuel\+Usage)
+\item 
+unsigned int \mbox{\hyperlink{class_engine_ac0348761a0d7e0fb1dbaf5f60ff269e0}{get\+Fuel\+Usage}} () const
+\item 
+\mbox{\hyperlink{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}{Engine}} ()
+\item 
+bool \mbox{\hyperlink{class_engine_ae317404b25100a6d570b13bf39914919}{get\+State}} () const
+\item 
+void \mbox{\hyperlink{class_engine_ae23a1a1dd752a4066408d0b0273067b6}{set\+State}} (bool state)
+\item 
+int \mbox{\hyperlink{class_engine_a1273dad2b6d266eb8e3be2ad26cf6ed7}{get\+Engine\+Speed}} () const
+\item 
+void \mbox{\hyperlink{class_engine_a8d175e6c65201e30a21484edb7267396}{set\+Engine\+Speed}} (int engine\+Speed)
+\item 
+float \mbox{\hyperlink{class_engine_a4c441821066ecb2bb23031df12ddc498}{get\+Oil\+Level}} () const
+\item 
+void \mbox{\hyperlink{class_engine_aba2db1512d64a706ad5503cd76177c5b}{set\+Oil\+Level}} (float oil\+Level)
+\item 
+double \mbox{\hyperlink{class_engine_a35ad13ab4885cf40c753f643810ea614}{get\+Car\+Mileage}} () const
+\item 
+void \mbox{\hyperlink{class_engine_a436ce556d58fea6e1b20da505b8989e1}{set\+Car\+Mileage}} (double car\+Mileage)
+\item 
+std\+::string \mbox{\hyperlink{class_engine_a10b3cd96ed7cff7154e6582ca741af78}{get\+Condition}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Klasa Silnik definiuje nam motor w samochodzie. Dziedziczy po \mbox{\hyperlink{class_car_part}{Car\+Part}}. 
+\begin{DoxyParams}{Parameters}
+{\em bool} & state -\/ przechowuje stan silnika \\
+\hline
+{\em engine\+\_\+speed} & -\/ przechowuje obroty \\
+\hline
+{\em oil\+\_\+level} & -\/ przechowuje aktualny stan oleju \\
+\hline
+{\em car\+\_\+mileage} & -\/ przechowuje przebieg \\
+\hline
+{\em fuel\+\_\+usage} & -\/ przechowuje spalanie \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 26 of file Car.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_a7694e2880cbe24310e752600a7a95fa0}\label{class_engine_a7694e2880cbe24310e752600a7a95fa0}} 
+\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Engine\+::\+Engine (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{vin,  }\item[{const std\+::string \&}]{production\+Date,  }\item[{const std\+::string \&}]{condition,  }\item[{bool}]{state,  }\item[{int}]{engine\+Speed,  }\item[{float}]{oil\+Level,  }\item[{double}]{car\+Mileage,  }\item[{unsigned int}]{fuel\+Usage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 58 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}\label{class_engine_a8c98683b0a3aa28d8ab72a8bcd0d52f2}} 
+\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Engine\+::\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 49 of file Engine.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_a35ad13ab4885cf40c753f643810ea614}\label{class_engine_a35ad13ab4885cf40c753f643810ea614}} 
+\index{Engine@{Engine}!getCarMileage@{getCarMileage}}
+\index{getCarMileage@{getCarMileage}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getCarMileage()}{getCarMileage()}}
+{\footnotesize\ttfamily double Engine\+::get\+Car\+Mileage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 33 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_a10b3cd96ed7cff7154e6582ca741af78}\label{class_engine_a10b3cd96ed7cff7154e6582ca741af78}} 
+\index{Engine@{Engine}!getCondition@{getCondition}}
+\index{getCondition@{getCondition}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getCondition()}{getCondition()}}
+{\footnotesize\ttfamily std\+::string Engine\+::get\+Condition (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_car_part_aaaaaaf401a481cc3d3580d852ad45415}{Car\+Part}}.
+
+
+
+Definition at line 72 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_a1273dad2b6d266eb8e3be2ad26cf6ed7}\label{class_engine_a1273dad2b6d266eb8e3be2ad26cf6ed7}} 
+\index{Engine@{Engine}!getEngineSpeed@{getEngineSpeed}}
+\index{getEngineSpeed@{getEngineSpeed}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getEngineSpeed()}{getEngineSpeed()}}
+{\footnotesize\ttfamily int Engine\+::get\+Engine\+Speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 17 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_ac0348761a0d7e0fb1dbaf5f60ff269e0}\label{class_engine_ac0348761a0d7e0fb1dbaf5f60ff269e0}} 
+\index{Engine@{Engine}!getFuelUsage@{getFuelUsage}}
+\index{getFuelUsage@{getFuelUsage}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getFuelUsage()}{getFuelUsage()}}
+{\footnotesize\ttfamily unsigned int Engine\+::get\+Fuel\+Usage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 41 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_a4c441821066ecb2bb23031df12ddc498}\label{class_engine_a4c441821066ecb2bb23031df12ddc498}} 
+\index{Engine@{Engine}!getOilLevel@{getOilLevel}}
+\index{getOilLevel@{getOilLevel}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getOilLevel()}{getOilLevel()}}
+{\footnotesize\ttfamily float Engine\+::get\+Oil\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 25 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_ae317404b25100a6d570b13bf39914919}\label{class_engine_ae317404b25100a6d570b13bf39914919}} 
+\index{Engine@{Engine}!getState@{getState}}
+\index{getState@{getState}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily bool Engine\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 8 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_a436ce556d58fea6e1b20da505b8989e1}\label{class_engine_a436ce556d58fea6e1b20da505b8989e1}} 
+\index{Engine@{Engine}!setCarMileage@{setCarMileage}}
+\index{setCarMileage@{setCarMileage}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{setCarMileage()}{setCarMileage()}}
+{\footnotesize\ttfamily void Engine\+::set\+Car\+Mileage (\begin{DoxyParamCaption}\item[{double}]{car\+Mileage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_a8d175e6c65201e30a21484edb7267396}\label{class_engine_a8d175e6c65201e30a21484edb7267396}} 
+\index{Engine@{Engine}!setEngineSpeed@{setEngineSpeed}}
+\index{setEngineSpeed@{setEngineSpeed}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{setEngineSpeed()}{setEngineSpeed()}}
+{\footnotesize\ttfamily void Engine\+::set\+Engine\+Speed (\begin{DoxyParamCaption}\item[{int}]{engine\+Speed }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_a2d0d1b4abd4fac9745c7752f0d246f0e}\label{class_engine_a2d0d1b4abd4fac9745c7752f0d246f0e}} 
+\index{Engine@{Engine}!setFuelUsage@{setFuelUsage}}
+\index{setFuelUsage@{setFuelUsage}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{setFuelUsage()}{setFuelUsage()}}
+{\footnotesize\ttfamily void Engine\+::set\+Fuel\+Usage (\begin{DoxyParamCaption}\item[{unsigned int}]{fuel\+Usage }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_aba2db1512d64a706ad5503cd76177c5b}\label{class_engine_aba2db1512d64a706ad5503cd76177c5b}} 
+\index{Engine@{Engine}!setOilLevel@{setOilLevel}}
+\index{setOilLevel@{setOilLevel}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{setOilLevel()}{setOilLevel()}}
+{\footnotesize\ttfamily void Engine\+::set\+Oil\+Level (\begin{DoxyParamCaption}\item[{float}]{oil\+Level }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file Engine.\+cpp.
+
+\mbox{\Hypertarget{class_engine_ae23a1a1dd752a4066408d0b0273067b6}\label{class_engine_ae23a1a1dd752a4066408d0b0273067b6}} 
+\index{Engine@{Engine}!setState@{setState}}
+\index{setState@{setState}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Engine\+::set\+State (\begin{DoxyParamCaption}\item[{bool}]{state }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Engine.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wojtek/\+CLion\+Projects/\+PO\+\_\+projekt\+\_\+2/\mbox{\hyperlink{_car_8h}{Car.\+h}}\item 
+C\+:/\+Users/\+Wojtek/\+CLion\+Projects/\+PO\+\_\+projekt\+\_\+2/\mbox{\hyperlink{_engine_8cpp}{Engine.\+cpp}}\end{DoxyCompactItemize}

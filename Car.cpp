@@ -20,29 +20,31 @@ using std::cout; using std::endl;
  * @return
  */
 void CarController::start_engine() {
-    //TODO add a loop for choice
-    std::cout << "press q to turn on the engine, press r to turn off the engine: ";
-    char choice;
-    std::cin >> choice;
-    model.setTurnOnOff(choice);
-    if (model.getTurnOnOff() == 'q') {
-        srand(time(NULL));
-
-        model.engine.setState(true);
-        model.engine.setEngineSpeed(1000);
-        model.gearbox.setCurrentGear(0);
-        //engine.setFuelUsage(rand() % 7 + 5);
-        std::cout << "\nengine is turned on, starting parameters: engine speed= " << model.engine.getEngineSpeed()
-                  << " oil level= " << model.engine.getOilLevel() << "fuel usage: " << model.engine.getFuelUsage() << "\n";
-    }
-    if (model.getTurnOnOff() == 'a') {
-        model.engine.setState(false);
-        std::cout << "\nengine is turned off";
-    }
-    if (model.getTurnOnOff() != 'q' && model.getTurnOnOff() != 'a') {
-        std::cout << "\nwrong command, try again: ";
+   do {
+        std::cout << "press q to turn on the engine, press r to turn off the engine: ";
+        char choice;
         std::cin >> choice;
-    }
+        model.setTurnOnOff(choice);
+        if (model.getTurnOnOff() == 'q') {
+            srand(time(NULL));
+
+            model.engine.setState(true);
+            model.engine.setEngineSpeed(1000);
+            model.gearbox.setCurrentGear(0);
+            //engine.setFuelUsage(rand() % 7 + 5);
+            std::cout << "\nengine is turned on, starting parameters: engine speed= " << model.engine.getEngineSpeed()
+                      << " oil level= " << model.engine.getOilLevel() << "fuel usage: " << model.engine.getFuelUsage()
+                      << "\n";
+        }
+        if (model.getTurnOnOff() == 'a') {
+            model.engine.setState(false);
+            std::cout << "\nengine is turned off";
+        }
+        if (model.getTurnOnOff() != 'q' && model.getTurnOnOff() != 'a') {
+            std::cout << "\nwrong command, try again: ";
+            std::cin >> choice;
+        }
+    } while (model.getTurnOnOff() != 'q' || model.getTurnOnOff() != 'a');
 }
 /**
  *
@@ -133,9 +135,10 @@ void CarController::move() {
             //engine.setEngineSpeed(6000);
         }
 
-        if (GetKeyState('P') & 0x8000)
-            break;
-
+        if (GetKeyState('P') & 0x8000) {
+            model.setTurnOnOff('a');
+            start_engine();
+        }
 
         if (GetKeyState('R') & 0x8000)
             view.checkEngine(model);
@@ -165,10 +168,8 @@ Car::Car(const GearBox&  gearbox, const Engine&  engine, float fuel) {
 }
 
 Car::Car() {
-    auto *gearbox1 =new GearBox();
-    auto *engine1 = new Engine();
-    this->gearbox = *gearbox1;
-    this->engine = *engine1;
+    gearbox = GearBox();
+    engine = Engine();
 
 }
 
@@ -209,3 +210,5 @@ void CarView::checkEngine(Car &car) {
     getchar();
 
 }
+
+

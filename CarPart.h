@@ -28,7 +28,7 @@ public:
 
 protected:
     std::string vin;
-    std::string production_date;
+   std::string production_date;
     std::string condition;
 
 

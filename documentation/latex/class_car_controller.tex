@@ -1,0 +1,124 @@
+\hypertarget{class_car_controller}{}\doxysection{Car\+Controller Class Reference}
+\label{class_car_controller}\index{CarController@{CarController}}
+
+
+{\ttfamily \#include $<$Car.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_car_controller_a3768213d64220b76a2233a18df62719f}{Car\+Controller}} (\mbox{\hyperlink{class_car}{Car}} model, \mbox{\hyperlink{class_car_view}{Car\+View}} view)
+\item 
+void \mbox{\hyperlink{class_car_controller_a0c205ce98efe73f7b250ac35191c393e}{start\+\_\+engine}} ()
+\item 
+void \mbox{\hyperlink{class_car_controller_a42d157f88fa49290c4777d4dc65a59cb}{accelerate}} ()
+\item 
+void \mbox{\hyperlink{class_car_controller_a5f34c61b054175d866d4911420a795d5}{brake}} ()
+\item 
+void \mbox{\hyperlink{class_car_controller_a42e50f717e27be11937813d9ef1176fb}{move}} ()
+\item 
+const \mbox{\hyperlink{class_car}{Car}} \mbox{\hyperlink{class_car_controller_aac80a3be9b8023fd9b78cd009a17c361}{get\+Model}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+kontroler do Modelu car 
+\begin{DoxyParams}{Parameters}
+{\em model} & -\/ model samochodu \\
+\hline
+{\em view} & -\/ widok samochodu \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 155 of file Car.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_car_controller_a3768213d64220b76a2233a18df62719f}\label{class_car_controller_a3768213d64220b76a2233a18df62719f}} 
+\index{CarController@{CarController}!CarController@{CarController}}
+\index{CarController@{CarController}!CarController@{CarController}}
+\doxysubsubsection{\texorpdfstring{CarController()}{CarController()}}
+{\footnotesize\ttfamily Car\+Controller\+::\+Car\+Controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_car}{Car}}}]{model,  }\item[{\mbox{\hyperlink{class_car_view}{Car\+View}}}]{view }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 161 of file Car.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_car_controller_a42d157f88fa49290c4777d4dc65a59cb}\label{class_car_controller_a42d157f88fa49290c4777d4dc65a59cb}} 
+\index{CarController@{CarController}!accelerate@{accelerate}}
+\index{accelerate@{accelerate}!CarController@{CarController}}
+\doxysubsubsection{\texorpdfstring{accelerate()}{accelerate()}}
+{\footnotesize\ttfamily void Car\+Controller\+::accelerate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+metoda odpowiedzialna za przyspieszanie z 
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file Car.\+cpp.
+
+\mbox{\Hypertarget{class_car_controller_a5f34c61b054175d866d4911420a795d5}\label{class_car_controller_a5f34c61b054175d866d4911420a795d5}} 
+\index{CarController@{CarController}!brake@{brake}}
+\index{brake@{brake}!CarController@{CarController}}
+\doxysubsubsection{\texorpdfstring{brake()}{brake()}}
+{\footnotesize\ttfamily void Car\+Controller\+::brake (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+metoda odpowiedzialna za hamowanie. metoda nie przyjmuje
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file Car.\+cpp.
+
+\mbox{\Hypertarget{class_car_controller_aac80a3be9b8023fd9b78cd009a17c361}\label{class_car_controller_aac80a3be9b8023fd9b78cd009a17c361}} 
+\index{CarController@{CarController}!getModel@{getModel}}
+\index{getModel@{getModel}!CarController@{CarController}}
+\doxysubsubsection{\texorpdfstring{getModel()}{getModel()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_car}{Car}} Car\+Controller\+::get\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 154 of file Car.\+cpp.
+
+\mbox{\Hypertarget{class_car_controller_a42e50f717e27be11937813d9ef1176fb}\label{class_car_controller_a42e50f717e27be11937813d9ef1176fb}} 
+\index{CarController@{CarController}!move@{move}}
+\index{move@{move}!CarController@{CarController}}
+\doxysubsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void Car\+Controller\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+metoda obsługująca akcje związane z poruszaniem się poprzez naciskanie odpowiednich klawiszy\+: W -\/ przyspieszanie S -\/ hamowanie Q -\/ zmiana biegu na wyższy E -\/ zmiana biegu na niższy P -\/ zakończenmie działania R -\/ wyświetlenie stanu samochodu
+
+Dodatkowo metoda sprawdza na początku stan silnika, jeżeli zabraknie paliwa lub oleju to zatrzyma silnik 
+
+Definition at line 110 of file Car.\+cpp.
+
+\mbox{\Hypertarget{class_car_controller_a0c205ce98efe73f7b250ac35191c393e}\label{class_car_controller_a0c205ce98efe73f7b250ac35191c393e}} 
+\index{CarController@{CarController}!start\_engine@{start\_engine}}
+\index{start\_engine@{start\_engine}!CarController@{CarController}}
+\doxysubsubsection{\texorpdfstring{start\_engine()}{start\_engine()}}
+{\footnotesize\ttfamily void Car\+Controller\+::start\+\_\+engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Metoda uruchamiająca silnik. przez naciśnięcie q odpala się silnik 
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file Car.\+cpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Wojtek/\+CLion\+Projects/\+PO\+\_\+projekt\+\_\+2/\mbox{\hyperlink{_car_8h}{Car.\+h}}\item 
+C\+:/\+Users/\+Wojtek/\+CLion\+Projects/\+PO\+\_\+projekt\+\_\+2/\mbox{\hyperlink{_car_8cpp}{Car.\+cpp}}\end{DoxyCompactItemize}

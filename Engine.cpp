@@ -3,6 +3,7 @@
 //
 
 #include "Engine.h"
+#include <sstream>
 
 
 bool Engine::getState() const {
@@ -68,6 +69,12 @@ Engine::Engine(const std::string &vin, const std::string &productionDate, const 
                                                                                                            carMileage),
                                                                                                    fuel_usage(
                                                                                                            fuelUsage) {}
+std::string EngineView::to_string(const Engine engine) {
+    std::ostringstream ss;
+    ss << engine.getOilLevel();
+    return ss.str();
+}
+
 
 std::string  Engine::getCondition() const {
     std::string con;
@@ -83,6 +90,8 @@ std::string  Engine::getCondition() const {
 
     return con;
 }
+
+
 
 
 

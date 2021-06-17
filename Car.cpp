@@ -35,14 +35,15 @@ void Car::start_engine() {
 
 void Car::accelerate() {
     std::cout << "\b\b\b";
-    if (speed < 300 && engine.getEngineSpeed() < 6000) {
+    if (speed < 300 && engine.getEngineSpeed() < 6000 && gearbox.getCurrentGear() > 0) {
         speed++;
         engine.setEngineSpeed(engine.getEngineSpeed() + 100);
     }                                                                                        //klikanie "w" zwieksza predkosc i obroty
 
 
     std::printf("%3d", speed);
-    std::printf(reinterpret_cast<const char *>(gearbox.getCurrentGear()));
+    std::cout << "\ncurrent gear: " << gearbox.getCurrentGear();
+    std::cout << "\tcurrent revs: " << engine.getEngineSpeed() << std::endl;
     Sleep(100);
 }
 
@@ -57,7 +58,10 @@ void Car::brake() {
         engine.setState(false);
         this->turn_on_off = 'a';
     }
-    //wyswietlanie aktualnej predkosci, kasuje poprzednia wypisana predkosc i zastepuje je nowa predkoscia
+    std::printf("%3d", speed);
+    std::cout << "\ncurrent gear: " << gearbox.getCurrentGear();
+    std::cout << "\tcurrent revs: " << engine.getEngineSpeed()
+              << std::endl;//wyswietlanie aktualnej predkosci, kasuje poprzednia wypisana predkosc i zastepuje je nowa predkoscia
     Sleep(100);
 }
 
@@ -73,30 +77,60 @@ void Car::move() {
 
 
         if (GetKeyState('Q') & 0x8000) {
-            if (!gearbox.gearUp())
-                std::cout << "max gear achieved" << std::endl;
+            gearbox.gearUp(&engine);
+            //engine.setEngineSpeed(1000);
         }                                                                                  //klikanie "m" konczy jazde
         if (GetKeyState('E') & 0x8000) {
-            if (!gearbox.gearDown())
-                std::cout << "lowest gear achieved" << std::endl;
+            gearbox.gearDown(&engine);
+            std::cout << "lowest gear achieved" << std::endl;
+            //engine.setEngineSpeed(6000);
         }
 
         if (GetKeyState('P') & 0x8000)
             break;
 
 
+        if (GetKeyState('R') & 0x8000)
+            std::cout << check_engine<std::string>();
+
+        fuel -= engine.getFuelUsage() / 100;
     }
 }
 
-Car::Car(const GearBox &gearbox, const Engine &engine, const Wheels &wheels) : gearbox(gearbox), engine(engine),
-                                                                               wheels(wheels) {}
+Car::Car(const GearBox &gearbox, const Engine &engine, float fuel) : gearbox(gearbox), engine(engine), fuel(fuel) {}
 
 Car::Car() {
+    std::cout << "Gearbox configuration" << std::endl;
     this->gearbox = GearBox();
+    std::cout << "engine configuration" << std::endl;
     this->engine = Engine();
-    this->wheels = Wheels();
 
 }
+
+template<class T>
+std::string Car::check_engine() {
+    T *state;
+    state[0] = engine.getCondition();
+    state[1] = engine.getOilLevel();
+    state[2] = engine.getCarMileage();
+    state[3] = engine.getFuelUsage();
+    state[4] = this->getFuel();
+    std::string result;
+    for (int i = 0; i < 5; i++) {
+        result += state[i] + "\t";
+    }
+
+    return result;
+}
+
+float Car::getFuel() const {
+    return fuel;
+}
+
+void Car::setFuel(float fuel) {
+    Car::fuel = fuel;
+}
+
 
 
 

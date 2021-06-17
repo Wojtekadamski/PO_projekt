@@ -20,7 +20,7 @@ public:
     explicit Tire(int diameter);
 
     Tire();//konstruktor
-    ~Tire();
+
 
     Tire(const std::string &vin, const std::string &productionDate, const std::string &condition, int diameter);
     //destruktor

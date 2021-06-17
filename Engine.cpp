@@ -5,7 +5,6 @@
 #include "Engine.h"
 
 
-
 bool Engine::getState() const {
     return state;
 }
@@ -15,19 +14,19 @@ void Engine::setState(bool state) {
 }
 
 
- int Engine::getEngineSpeed() const {
-     return engine_speed;
- }
+int Engine::getEngineSpeed() const {
+    return engine_speed;
+}
 
 void Engine::setEngineSpeed(int engineSpeed) {
     engine_speed = engineSpeed;
 }
 
-unsigned int Engine::getOilLevel() const {
+float Engine::getOilLevel() const {
     return oil_level;
 }
 
-void Engine::setOilLevel(unsigned int oilLevel) {
+void Engine::setOilLevel(float oilLevel) {
     oil_level = oilLevel;
 }
 
@@ -56,51 +55,18 @@ Engine::Engine() {
     this->fuel_usage = rand() % 6 + 5;
 }
 
+Engine::Engine(const std::string &vin, const std::string &productionDate, const std::string &condition, bool state,
+               int engineSpeed, float oilLevel, unsigned int carMileage, unsigned int fuelUsage) : CarPart(vin,
+                                                                                                           productionDate,
+                                                                                                           condition),
+                                                                                                   state(state),
+                                                                                                   engine_speed(
+                                                                                                           engineSpeed),
+                                                                                                   oil_level(
+                                                                                                           oilLevel),
+                                                                                                   car_mileage(
+                                                                                                           carMileage),
+                                                                                                   fuel_usage(
+                                                                                                           fuelUsage) {}
 
-/*int Engine::getSize() const {
-    return size;
-}
 
-void Engine::setSize(int size) {
-    Engine::size = size;
-}
-
-const std::string &Engine::getType() const {
-
-    return type;
-}
-
-void Engine::setType(const std::string &type) {
-
-    std::cout<<"Select engine type from the list:\n";
-    for (std::string x : ENGINE_TYPES){
-        std::cout<<x;
-    }
-    int choice = 0;
-    std::cin>>choice;
-    Engine::type = ENGINE_TYPES[choice];
-}
-
-int Engine::getHorsePower() const {
-    return horse_power;
-}
-
-void Engine::setHorsePower(int horsePower) {
-    horse_power = horsePower;
-}
-
-int Engine::getTorque() const {
-    return torque;
-}
-
-void Engine::setTorque(int torque) {
-    Engine::torque = torque;
-}
-
-const std::string &Engine::getManufacturer() const {
-    return manufacturer;
-}
-
-void Engine::setManufacturer(const std::string &manufacturer) {
-    Engine::manufacturer = manufacturer;
-} */

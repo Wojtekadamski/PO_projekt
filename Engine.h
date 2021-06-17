@@ -13,11 +13,14 @@ class Engine : public CarPart {
 private:
     bool state;
     int engine_speed;
-    unsigned int oil_level;
+    float oil_level;
     unsigned int car_mileage;
     unsigned int fuel_usage;
 public:
     void setFuelUsage(unsigned int fuelUsage);
+
+    Engine(const std::string &vin, const std::string &productionDate, const std::string &condition, bool state,
+           int engineSpeed, float oilLevel, unsigned int carMileage, unsigned int fuelUsage);
 
 
     unsigned int getFuelUsage() const;
@@ -32,9 +35,9 @@ public:
 
     void setEngineSpeed(int engineSpeed);
 
-    unsigned int getOilLevel() const;
+    float getOilLevel() const;
 
-    void setOilLevel(unsigned int oilLevel);
+    void setOilLevel(float oilLevel);
 
     unsigned int getCarMileage() const;
 

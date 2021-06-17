@@ -8,6 +8,8 @@
 
 #include <ios>
 #include "CarPart.h"
+#include "Engine.h"
+#include "iostream"
 
 class GearBox : public CarPart {
 private:
@@ -26,21 +28,43 @@ public:
 
     void setCurrentGear(int currentGear);
 
-    bool gearUp() {
-        if (this->current_gear < this->TOP_GEAR) {
+    bool gearUp(Engine *engine) {
+        if (current_gear < TOP_GEAR) {
+            if(engine->getEngineSpeed() < 1000 && current_gear!=0) {
+                std::cout <<"can't shift up, revs too low "<<std::endl;
+                return false;
+            }
             current_gear++;
+            if (engine->getEngineSpeed() > 4000) {
+                engine->setEngineSpeed(engine->getEngineSpeed() - 3000);
+            } else {
+                engine->setEngineSpeed(1000);
+            }
+
+            _sleep(300);
             return true;
         }
         return false;
     }
 
-    bool gearDown() {
-        if (this->current_gear > 0) {
+    bool gearDown(Engine *engine) {
+        if (current_gear > 0) {
+            if(engine->getEngineSpeed() >5999) {
+                std::cout <<"can't shift down, revs too high "<<std::endl;
+                return false;
+            }
             current_gear--;
+            if (engine->getEngineSpeed() < 4000) {
+                engine->setEngineSpeed(engine->getEngineSpeed() + 3000);
+            } else {
+                engine->setEngineSpeed(6000);
+            }
+            _sleep(300);
             return true;
         }
         return false;
     }
+
 };
 
 

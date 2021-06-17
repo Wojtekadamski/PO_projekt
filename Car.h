@@ -14,33 +14,36 @@ class Car {
 private:
 
 
+
+
     GearBox gearbox;
     Engine engine;
-    Wheels wheels;
     char turn_on_off;
     unsigned int speed = 0;
-    unsigned int localEnginespeed = engine.getEngineSpeed();
-
+    float fuel;
 public:
-    void start_engine();
+    float getFuel() const;
 
+    void setFuel(float fuel);
+    //unsigned int localEnginespeed = engine.getEngineSpeed();
+
+    void start_engine();
+    Car(const GearBox &gearbox, const Engine &engine, float fuel);
     void accelerate();
 
     void brake();
 
-    void check_engine();
+    template <class T>
+    std::string check_engine();
 
-    std::string to_string();
 
-    std::string getFullStatus();
 
-    void changeGear();
+
 
     Car();
 
     void move();
 
-    Car(const GearBox &gearbox, const Engine &engine, const Wheels &wheels);
 };
 
 

@@ -3,6 +3,8 @@
 //
 
 #include "GearBox.h"
+#include "Car.h"
+
 #include <iostream>
 
 
@@ -25,6 +27,43 @@ GearBox::GearBox(const std::string &vin, const std::string &productionDate, cons
 GearBox::GearBox() {
     std::cout << "set top gear" << std::endl;
     std::cin >> this->TOP_GEAR;
+}
+
+bool GearBox::gearDown(Engine *engine) {
+    if (current_gear > 0) {
+        if(engine->getEngineSpeed() >5999) {
+            std::cout <<"can't shift down, revs too high "<<std::endl;
+            return false;
+        }
+        current_gear--;
+        if (engine->getEngineSpeed() < 4000) {
+            engine->setEngineSpeed(engine->getEngineSpeed() + 3000);
+        } else {
+            engine->setEngineSpeed(6000);
+        }
+        _sleep(300);
+        return true;
+    }
+    return false;
+}
+
+bool GearBox::gearUp(Engine *engine) {
+    if (current_gear < TOP_GEAR) {
+        if(engine->getEngineSpeed() < 1000 && current_gear!=0) {
+            std::cout <<"can't shift up, revs too low "<<std::endl;
+            return false;
+        }
+        current_gear++;
+        if (engine->getEngineSpeed() > 4000) {
+            engine->setEngineSpeed(engine->getEngineSpeed() - 3000);
+        } else {
+            engine->setEngineSpeed(1000);
+        }
+
+        _sleep(300);
+        return true;
+    }
+    return false;
 }
 
 

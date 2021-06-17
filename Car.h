@@ -6,9 +6,80 @@
 #define PO_PROJEKT_CAR_H
 
 
-#include "GearBox.h"
-#include "Engine.h"
 #include "Wheels.h"
+#include <ios>
+#include "CarPart.h"
+#include "iostream"
+#include <ios>
+#include "CarPart.h"
+
+
+class Engine : public CarPart {
+private:
+    bool state;
+    int engine_speed;
+    float oil_level;
+    double car_mileage;
+    unsigned int fuel_usage;
+public:
+    void setFuelUsage(unsigned int fuelUsage);
+
+    Engine(const std::string &vin, const std::string &productionDate, const std::string &condition, bool state,
+           int engineSpeed, float oilLevel, double carMileage, unsigned int fuelUsage);
+
+
+    unsigned int getFuelUsage() const;
+
+    Engine();
+
+    bool getState() const;
+
+    void setState(bool state);
+
+    int getEngineSpeed() const;
+
+    void setEngineSpeed(int engineSpeed);
+
+    float getOilLevel() const;
+
+    void setOilLevel(float oilLevel);
+
+    double getCarMileage() const;
+
+    void setCarMileage(double carMileage);
+
+    std::string  getCondition() const;
+
+};
+class EngineView{
+
+//TODO write to string
+
+};
+
+class GearBox : public CarPart {
+private:
+    int TOP_GEAR;
+    int current_gear;
+
+public:
+    GearBox();
+
+    GearBox(const std::string &vin, const std::string &productionDate, const std::string &condition, const int topGear,
+            int currentGear);
+
+    int getTopGear() const;
+
+    int getCurrentGear() const;
+
+    void setCurrentGear(int currentGear);
+
+    bool gearUp(Engine *engine);
+
+    bool gearDown(Engine *engine);
+
+};
+
 
 class Car {
 private:
@@ -16,17 +87,11 @@ private:
     char turn_on_off;
     unsigned int speed = 0;
     float fuel;
+
+
 public:
     GearBox gearbox;
     Engine engine;
-//     GearBox getGearbox()  {
-//        return gearbox;
-//    }
-//
-//
-//     Engine  getEngine()  {
-//        return  engine;
-//    }
 
     unsigned int getSpeed() const {
         return speed;

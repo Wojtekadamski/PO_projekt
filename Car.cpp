@@ -12,6 +12,13 @@
 #include <random>
 
 using std::cout; using std::endl;
+
+/**
+ * Metoda uruchamiająca silnik.
+ * przez naciśnięcie q odpala się silnik
+ * @param
+ * @return
+ */
 void CarController::start_engine() {
     //TODO add a loop for choice
     std::cout << "press q to turn on the engine, press r to turn off the engine: ";
@@ -37,7 +44,13 @@ void CarController::start_engine() {
         std::cin >> choice;
     }
 }
-
+/**
+ *
+ * metoda odpowiedzialna za przyspieszanie z
+ * @param
+ * @return
+ *
+ */
 void CarController::accelerate() {
     std::cout << "\b\b\b";
     std::random_device dev;
@@ -51,13 +64,15 @@ void CarController::accelerate() {
 
     }                                                                                        //klikanie "w" zwieksza predkosc i obroty
 
-
-//    std::printf("%3d", speed);
-//    std::cout << "\ncurrent gear: " << gearbox.getCurrentGear();
-//    std::cout << "\tcurrent revs: " << engine.getEngineSpeed() << std::endl;
     Sleep(100);
 }
-
+/**
+ * metoda odpowiedzialna za hamowanie.
+ * metoda nie przyjmuje @param
+ *
+ * @return void
+ *
+ */
 void CarController::brake() {
     std::cout
             << "\b\b\b";
@@ -80,6 +95,18 @@ void CarController::brake() {
     Sleep(100);
 }
 
+
+/**
+ * metoda obsługująca akcje związane z poruszaniem się poprzez naciskanie odpowiednich klawiszy:
+ * W - przyspieszanie
+ * S - hamowanie
+ * Q - zmiana biegu na wyższy
+ * E - zmiana biegu na niższy
+ * P - zakończenmie działania
+ * R - wyświetlenie stanu samochodu
+ *
+ * Dodatkowo metoda sprawdza na początku stan silnika, jeżeli zabraknie paliwa lub oleju to zatrzyma silnik
+ */
 void CarController::move() {
     while (true) {
         if(model.engine.getOilLevel() == 0 || model.getFuel()==0){
@@ -167,7 +194,11 @@ void Car::setTurnOnOff(char turnOnOff) {
 
 
 
-
+/**
+ * metoda wyświetlająca stan silnika
+ *
+ * @param car
+ */
 void CarView::checkEngine(Car &car) {
     cout <<"engine condition: "<< car.engine.getCondition()<<endl;
 

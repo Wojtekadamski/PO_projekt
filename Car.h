@@ -13,7 +13,16 @@
 #include <ios>
 #include "CarPart.h"
 
-
+/**
+ *
+ * Klasa Silnik definiuje nam motor w samochodzie. Dziedziczy po CarPart.
+ * @param bool state - przechowuje stan silnika
+ * @param engine_speed - przechowuje obroty
+ * @param oil_level - przechowuje aktualny stan oleju
+ * @param car_mileage - przechowuje przebieg
+ * @param fuel_usage - przechowuje spalanie
+ *
+ */
 class Engine : public CarPart {
 private:
     bool state;
@@ -56,7 +65,13 @@ class EngineView{
 //TODO write to string
 
 };
-
+/**
+ *
+ * Klasa GearBox definiuje skrzynię biegów w samochodzi
+ *
+ * @param TOP_GEAR - maksymalny bieg
+ * @param current_gear - obecny bieg
+ */
 class GearBox : public CarPart {
 private:
     int TOP_GEAR;
@@ -80,7 +95,13 @@ public:
 
 };
 
-
+/**
+ * @param turn_on_off - zawiera informację czy silnik działa
+ * @param speed - aktualna prędkość
+ * @param fuel - ilość paliwa
+ * @param gearbox - kompozycja, obiekt reprezentujący skrzynię biegów
+ * @param engine - kompozycja, obiekt reprezentujący silnik
+ */
 class Car {
 private:
 
@@ -125,7 +146,12 @@ public:
     void checkEngine(Car &car);
 
 };
-
+/**
+ *
+ * kontroler do Modelu car
+ * @param model - model samochodu
+ * @param view - widok samochodu
+ */
 class CarController{
 
     private:

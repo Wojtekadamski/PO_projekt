@@ -28,7 +28,12 @@ GearBox::GearBox() {
     std::cout << "set top gear" << std::endl;
     std::cin >> this->TOP_GEAR;
 }
-
+/**
+ *
+ * metoda zrzucająca bieg
+ * @param engine
+ * @return
+ */
 bool GearBox::gearDown(Engine *engine) {
     if (current_gear > 0) {
         if(engine->getEngineSpeed() >5999) {
@@ -46,7 +51,12 @@ bool GearBox::gearDown(Engine *engine) {
     }
     return false;
 }
-
+/**
+ * metoda wrzucająca wyższy bieg
+ *
+ * @param engine
+ * @return bool
+ */
 bool GearBox::gearUp(Engine *engine) {
     if (current_gear < TOP_GEAR) {
         if(engine->getEngineSpeed() < 1000 && current_gear!=0) {

@@ -13,37 +13,73 @@
 class Car {
 private:
 
-
-
-
-    GearBox gearbox;
-    Engine engine;
     char turn_on_off;
     unsigned int speed = 0;
     float fuel;
 public:
+    GearBox gearbox;
+    Engine engine;
+//     GearBox getGearbox()  {
+//        return gearbox;
+//    }
+//
+//
+//     Engine  getEngine()  {
+//        return  engine;
+//    }
+
+    unsigned int getSpeed() const {
+        return speed;
+    }
+
+    void setSpeed(unsigned int speed) {
+        Car::speed = speed;
+    }
+
+
+    char getTurnOnOff() const;
+
+    void setTurnOnOff(char turnOnOff);
+
+    Car();
+
+    Car(const GearBox& gearbox, const Engine& engine, float fuel);
+
     float getFuel() const;
 
     void setFuel(float fuel);
     //unsigned int localEnginespeed = engine.getEngineSpeed();
 
+
+};
+
+class CarView{
+
+public:
+
+    void checkEngine(Car &car);
+
+};
+
+class CarController{
+
+    private:
+    Car model;
+    CarView view;
+public:
+    CarController(Car model, CarView view){
+        this->model = model;
+        this->view = view;
+    }
     void start_engine();
-    Car(const GearBox &gearbox, const Engine &engine, float fuel);
+
+
     void accelerate();
 
     void brake();
 
-    template <class T>
-    std::string check_engine();
-
-
-
-
-
-    Car();
-
     void move();
-
+    const Car getModel() const;
 };
 
 

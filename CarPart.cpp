@@ -15,7 +15,7 @@ const std::string &CarPart::getVin() const {
 
 
 
-const std::string &CarPart::getCondition() const {
+std::string CarPart::getCondition() const {
     return condition;
 }
 

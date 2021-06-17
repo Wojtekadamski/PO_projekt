@@ -30,11 +30,11 @@ void Engine::setOilLevel(float oilLevel) {
     oil_level = oilLevel;
 }
 
-unsigned int Engine::getCarMileage() const {
+double Engine::getCarMileage() const {
     return car_mileage;
 }
 
-void Engine::setCarMileage(unsigned int carMileage) {
+void Engine::setCarMileage(double carMileage) {
     car_mileage = carMileage;
 }
 
@@ -56,7 +56,7 @@ Engine::Engine() {
 }
 
 Engine::Engine(const std::string &vin, const std::string &productionDate, const std::string &condition, bool state,
-               int engineSpeed, float oilLevel, unsigned int carMileage, unsigned int fuelUsage) : CarPart(vin,
+               int engineSpeed, float oilLevel, double carMileage, unsigned int fuelUsage) : CarPart(vin,
                                                                                                            productionDate,
                                                                                                            condition),
                                                                                                    state(state),
@@ -68,5 +68,21 @@ Engine::Engine(const std::string &vin, const std::string &productionDate, const 
                                                                                                            carMileage),
                                                                                                    fuel_usage(
                                                                                                            fuelUsage) {}
+
+std::string  Engine::getCondition() const {
+    std::string con;
+
+    if(oil_level>=80)
+        con="perfect";
+    if(oil_level<80 && oil_level >= 60)
+        con = "good";
+    if(oil_level<60 && oil_level >= 30)
+        con =  "bad, change oil";
+    if(oil_level<30)
+        con = "refill oil";
+
+    return con;
+}
+
 
 

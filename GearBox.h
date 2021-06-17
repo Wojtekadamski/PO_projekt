@@ -11,7 +11,7 @@
 #include "Engine.h"
 #include "iostream"
 
-class GearBox : public CarPart {
+ class GearBox : public CarPart {
 private:
     int TOP_GEAR;
     int current_gear;

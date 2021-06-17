@@ -8,65 +8,85 @@
 #include <cstdlib>     /* srand, rand */
 #include <ctime>
 #include <synchapi.h>
+#include <sstream>
+#include <random>
 
-
-void Car::start_engine() {
+using std::cout; using std::endl;
+void CarController::start_engine() {
+    //TODO add a loop for choice
     std::cout << "press q to turn on the engine, press r to turn off the engine: ";
-    std::cin >> this->turn_on_off;
-    if (turn_on_off == 'q') {
+    char choice;
+    std::cin >> choice;
+    model.setTurnOnOff(choice);
+    if (model.getTurnOnOff() == 'q') {
         srand(time(NULL));
 
-        engine.setState(true);
-        engine.setEngineSpeed(1000);
-        gearbox.setCurrentGear(0);
-        engine.setFuelUsage(rand() % 7 + 5);
-        std::cout << "\nengine is turned on, starting parameters: engine speed= " << engine.getEngineSpeed()
-                  << " oil level= " << engine.getOilLevel() << "fuel usage: " << engine.getFuelUsage() << "\n";
+        model.engine.setState(true);
+        model.engine.setEngineSpeed(1000);
+        model.gearbox.setCurrentGear(0);
+        //engine.setFuelUsage(rand() % 7 + 5);
+        std::cout << "\nengine is turned on, starting parameters: engine speed= " << model.engine.getEngineSpeed()
+                  << " oil level= " << model.engine.getOilLevel() << "fuel usage: " << model.engine.getFuelUsage() << "\n";
     }
-    if (turn_on_off == 'a') {
-        engine.setState(false);
+    if (model.getTurnOnOff() == 'a') {
+        model.engine.setState(false);
         std::cout << "\nengine is turned off";
     }
-    if (turn_on_off != 'q' && turn_on_off != 'a') {
+    if (model.getTurnOnOff() != 'q' && model.getTurnOnOff() != 'a') {
         std::cout << "\nwrong command, try again: ";
-        std::cin >> turn_on_off;
+        std::cin >> choice;
     }
 }
 
-void Car::accelerate() {
+void CarController::accelerate() {
     std::cout << "\b\b\b";
-    if (speed < 300 && engine.getEngineSpeed() < 6000 && gearbox.getCurrentGear() > 0) {
-        speed++;
-        engine.setEngineSpeed(engine.getEngineSpeed() + 100);
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<std::mt19937::result_type> dist6(50,100); // distribution in range [1, 6]
+
+
+    if (model.getSpeed() < 300 && model.engine.getEngineSpeed() < 6000 && model.gearbox.getCurrentGear() > 0) {
+        model.setSpeed(model.getSpeed()+1);
+        model.engine.setEngineSpeed(model.engine.getEngineSpeed() + dist6(rng) );
+
     }                                                                                        //klikanie "w" zwieksza predkosc i obroty
 
 
-    std::printf("%3d", speed);
-    std::cout << "\ncurrent gear: " << gearbox.getCurrentGear();
-    std::cout << "\tcurrent revs: " << engine.getEngineSpeed() << std::endl;
+//    std::printf("%3d", speed);
+//    std::cout << "\ncurrent gear: " << gearbox.getCurrentGear();
+//    std::cout << "\tcurrent revs: " << engine.getEngineSpeed() << std::endl;
     Sleep(100);
 }
 
-void Car::brake() {
+void CarController::brake() {
     std::cout
-            << "\b\b\b";                                                                                          //klikanie "s" zmniejsza predkosc i obroty
-    if (speed > 0 && engine.getEngineSpeed() > -2000) {
-        speed--;
-        engine.setEngineSpeed(engine.getEngineSpeed() - 100);
+            << "\b\b\b";
+    std::random_device dev;
+    std::mt19937 rng(dev());
+    std::uniform_int_distribution<std::mt19937::result_type> dist6(50,100); // distribution in range [1, 6]
+//klikanie "s" zmniejsza predkosc i obroty
+    if (model.getSpeed() > 0 && model.engine.getEngineSpeed() > 0) {
+        model.setSpeed(model.getSpeed()-1);
+        model.engine.setEngineSpeed(model.engine.getEngineSpeed() - dist6(rng) );
     }
-    if (engine.getEngineSpeed() < -2000) {
-        engine.setState(false);
-        this->turn_on_off = 'a';
+    if (model.engine.getEngineSpeed() < 500) {
+        model.engine.setState(false);
+        model.setTurnOnOff('a');
     }
-    std::printf("%3d", speed);
-    std::cout << "\ncurrent gear: " << gearbox.getCurrentGear();
-    std::cout << "\tcurrent revs: " << engine.getEngineSpeed()
-              << std::endl;//wyswietlanie aktualnej predkosci, kasuje poprzednia wypisana predkosc i zastepuje je nowa predkoscia
+//    std::printf("%3d", speed);
+//    std::cout << "\ncurrent gear: " << gearbox.getCurrentGear();
+//    std::cout << "\tcurrent revs: " << engine.getEngineSpeed()
+//              << std::endl;//wyswietlanie aktualnej predkosci, kasuje poprzednia wypisana predkosc i zastepuje je nowa predkoscia
     Sleep(100);
 }
 
-void Car::move() {
+void CarController::move() {
     while (true) {
+        if(model.engine.getOilLevel() == 0 || model.getFuel()==0){
+            std::cout <<"there is no fuel or gas. please check engine before next ride."<<std::endl;
+            view.checkEngine(model);
+            break;
+        }
 
         if (GetKeyState('W') & 0x8000) {
             accelerate();
@@ -77,11 +97,11 @@ void Car::move() {
 
 
         if (GetKeyState('Q') & 0x8000) {
-            gearbox.gearUp(&engine);
+            model.gearbox.gearUp(&model.engine);
             //engine.setEngineSpeed(1000);
         }                                                                                  //klikanie "m" konczy jazde
         if (GetKeyState('E') & 0x8000) {
-            gearbox.gearDown(&engine);
+            model.gearbox.gearDown(&model.engine);
             std::cout << "lowest gear achieved" << std::endl;
             //engine.setEngineSpeed(6000);
         }
@@ -91,46 +111,70 @@ void Car::move() {
 
 
         if (GetKeyState('R') & 0x8000)
-            std::cout << check_engine<std::string>();
+            view.checkEngine(model);
 
-        fuel -= engine.getFuelUsage() / 100;
+        std::printf("%3d", model.getSpeed());
+        std::cout << "\ncurrent gear: " << model.gearbox.getCurrentGear();
+        std::cout << "\tcurrent revs: " << model.engine.getEngineSpeed()
+                  << std::endl;
+        model.setFuel(model.getFuel() -(((float)model.engine.getFuelUsage() / 100) * (float)model.getSpeed()/10000))  ;
+        model.engine.setCarMileage(model.engine.getCarMileage()+(double)model.getSpeed()/36000);
+        model.getSpeed() > 0?model.engine.setOilLevel(model.engine.getOilLevel()-0.001f):model.engine.setOilLevel(model.engine.getOilLevel());
+
+        }
     }
+
+const Car CarController::getModel() const {
+    return model;
 }
 
-Car::Car(const GearBox &gearbox, const Engine &engine, float fuel) : gearbox(gearbox), engine(engine), fuel(fuel) {}
+
+
+Car::Car(const GearBox&  gearbox, const Engine&  engine, float fuel) {
+
+    this->gearbox = gearbox;
+    this->engine = engine;
+    this->fuel = fuel;
+}
 
 Car::Car() {
-    std::cout << "Gearbox configuration" << std::endl;
-    this->gearbox = GearBox();
-    std::cout << "engine configuration" << std::endl;
-    this->engine = Engine();
+    auto *gearbox1 =new GearBox();
+    auto *engine1 = new Engine();
+    this->gearbox = *gearbox1;
+    this->engine = *engine1;
 
 }
 
-template<class T>
-std::string Car::check_engine() {
-    T *state;
-    state[0] = engine.getCondition();
-    state[1] = engine.getOilLevel();
-    state[2] = engine.getCarMileage();
-    state[3] = engine.getFuelUsage();
-    state[4] = this->getFuel();
-    std::string result;
-    for (int i = 0; i < 5; i++) {
-        result += state[i] + "\t";
-    }
 
-    return result;
-}
+
+
 
 float Car::getFuel() const {
     return fuel;
 }
 
 void Car::setFuel(float fuel) {
-    Car::fuel = fuel;
+    this->fuel = fuel;
+}
+
+char Car::getTurnOnOff() const {
+    return turn_on_off;
+}
+
+void Car::setTurnOnOff(char turnOnOff) {
+    turn_on_off = turnOnOff;
 }
 
 
 
 
+void CarView::checkEngine(Car &car) {
+    cout <<"engine condition: "<< car.engine.getCondition()<<endl;
+
+    cout <<"oil level: "<< car.engine.getOilLevel()<<endl;
+    cout <<"mileage: "<<car.engine.getCarMileage()<<endl;
+    cout <<"fuel usage: "<<car.engine.getFuelUsage()<<endl;
+    cout <<"fuel level: "<<car.getFuel()<<endl;
+    getchar();
+
+}

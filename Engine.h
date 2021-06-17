@@ -8,19 +8,20 @@
 
 #include <ios>
 #include "CarPart.h"
+#include "Car.h"
 
 class Engine : public CarPart {
 private:
     bool state;
     int engine_speed;
     float oil_level;
-    unsigned int car_mileage;
+    double car_mileage;
     unsigned int fuel_usage;
 public:
     void setFuelUsage(unsigned int fuelUsage);
 
     Engine(const std::string &vin, const std::string &productionDate, const std::string &condition, bool state,
-           int engineSpeed, float oilLevel, unsigned int carMileage, unsigned int fuelUsage);
+           int engineSpeed, float oilLevel, double carMileage, unsigned int fuelUsage);
 
 
     unsigned int getFuelUsage() const;
@@ -39,11 +40,16 @@ public:
 
     void setOilLevel(float oilLevel);
 
-    unsigned int getCarMileage() const;
+    double getCarMileage() const;
 
-    void setCarMileage(unsigned int carMileage);
+    void setCarMileage(double carMileage);
 
+ std::string  getCondition() const;
 
+};
+class EngineView{
+
+//TODO write to string
 
 };
 

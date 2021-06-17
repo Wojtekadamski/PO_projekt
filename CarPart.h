@@ -14,7 +14,7 @@ public:
     const std::string &getVin() const;
 
 
-    const std::string &getCondition() const;
+    virtual std::string getCondition() const;
 
     void setCondition(const std::string &condition);
 
